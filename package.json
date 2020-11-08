@@ -1,17 +1,18 @@
 {
   "name": "react-native-composition",
   "version": "1.0.0",
-  "description": "React Native Lifecycle",
+  "description": "React Native Composition API",
   "peerDependencies": {
     "@react-navigation/native": ">=5.7.0",
     "react": ">=0.16.8",
     "react-native": ">=0.60.0",
-    "react-native-permissions": "^2.2.2",
-    "react-native-lifecycle": "^1.0.0"
+    "react-native-lifecycle": "^1.0.0",
+    "react-native-permissions": "^2.2.2"
   },
   "devDependencies": {
     "@types/react": "^16.9.56",
     "@types/react-native": "^0.63.33",
+    "@types/react-native-permissions": "^2.0.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
     "typescript": "^4.0.5"
