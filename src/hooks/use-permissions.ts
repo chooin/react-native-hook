@@ -1,19 +1,23 @@
-import {useState} from 'react';
-import {Platform} from 'react-native';
+import { useState } from 'react';
+import { Platform } from 'react-native';
 import {
   check,
   IOSPermission,
   AndroidPermission,
+  PermissionStatus,
   RESULTS,
 } from 'react-native-permissions';
-import {useShow} from 'react-native-lifecycle';
+import { useShow } from 'react-native-lifecycle';
+
+type Permissions =
+  | (IOSPermission | AndroidPermission)[]
+  | IOSPermission
+  | AndroidPermission;
 
 export default (
-  permissions:
-    | (IOSPermission | AndroidPermission)[]
-    | IOSPermission
-    | AndroidPermission,
-) => {
+  permissions: Permissions,
+  permissionStatus: PermissionStatus = RESULTS.GRANTED,
+): boolean => {
   const [state, setState] = useState<boolean>(false);
 
   useShow(() => {
@@ -21,9 +25,9 @@ export default (
       permissions = [permissions];
     }
     Promise.all(
-      permissions.filter((item) => item.startsWith(Platform.OS)).map(check),
-    ).then((res) => {
-      setState(res.every((item) => item === RESULTS.GRANTED));
+      permissions.filter(item => item.startsWith(Platform.OS)).map(check),
+    ).then(res => {
+      setState(res.every(item => item === permissionStatus));
     });
   });
 
