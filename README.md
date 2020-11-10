@@ -11,7 +11,7 @@ yarn add react-native-composition
 ##### 第三方依赖
 
 ```sh
-yarn add @react-native-lifecycle
+yarn add react-native-lifecycle
 yarn add @react-navigation/native # >=5.7.0
 ```
 
@@ -56,7 +56,7 @@ export default function Page() {
 ##### 第三方依赖
 
 ```sh
-yarn add @react-native-lifecycle
+yarn add react-native-lifecycle
 yarn add react-native-permissions
 ```
 
@@ -86,7 +86,7 @@ export default function Page() {
 ##### 第三方依赖
 
 ```sh
-yarn add @react-native-lifecycle
+yarn add react-native-lifecycle
 yarn add @react-navigation/native # >=5.7.0
 ```
 
