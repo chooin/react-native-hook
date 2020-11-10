@@ -122,3 +122,24 @@ export default function Page() {
   );
 }
 ```
+
+### usePageInterval 页面级 Interval
+
+##### 第三方依赖
+
+```sh
+yarn add react-native-lifecycle
+yarn add @react-navigation/native # >=5.7.0
+```
+
+##### 使用
+
+```js
+import { usePageInterval } from 'react-native-composition';
+
+export default function Page() {
+  usePageInterval(() => {
+    console.log('usePageInterval');
+  }, 60 * 1000);
+}
+```
