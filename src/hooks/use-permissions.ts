@@ -7,7 +7,7 @@ import {
   PermissionStatus,
   RESULTS,
 } from 'react-native-permissions';
-import { useShow } from 'react-native-lifecycle';
+import { useShow, useHide } from 'react-native-lifecycle';
 
 type Permissions =
   | (IOSPermission | AndroidPermission)[]
@@ -17,8 +17,8 @@ type Permissions =
 export default (
   permissions: Permissions,
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
-): boolean => {
-  const [state, setState] = useState<boolean>(false);
+): boolean | null => {
+  const [state, setState] = useState<boolean | null>(null);
 
   useShow(() => {
     if (typeof permissions === 'string') {
@@ -29,6 +29,10 @@ export default (
     ).then(res => {
       setState(res.every(item => item === permissionStatus));
     });
+  });
+
+  useHide(() => {
+    setState(null);
   });
 
   return state;

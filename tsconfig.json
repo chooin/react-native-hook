@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "target": "ES6",
     "strict": true,
     "module": "ESNext",
@@ -7,9 +8,7 @@
     "outDir": "./dist",
     "sourceMap": false,
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/index.ts",
-  ],
+  "include": ["src/index.ts"]
 }

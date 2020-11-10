@@ -6,6 +6,8 @@
 yarn add react-native-composition
 ```
 
+### 生命周期
+
 ##### 第三方依赖
 
 ```sh
@@ -13,34 +15,25 @@ yarn add @react-native-lifecycle
 yarn add @react-navigation/native # >=5.7.0
 ```
 
-### 生命周期
-
-##### 全局 Hooks
-
-```js
-import { useAppActive, useAppInactive } from 'react-native-lifecycle';
-
-export default function App() {
-  // App 从后台变为前台时执行
-  useAppActive(() => {});
-
-  // App 从前台变为后台时执行
-  useAppInactive(() => {});
-}
-```
-
-##### 页面 Hooks
+##### 使用
 
 ```js
 import {
+  useAppActive,
+  useAppInactive,
   useLoad,
   useShow,
   useHide,
   useUnload,
   useResize,
-} from 'react-native-lifecycle';
+} from 'react-native-permissions';
 
 export default function Page() {
+  // App 从后台变为前台时执行
+  useAppActive(() => {});
+
+  // App 从前台变为后台时执行
+  useAppInactive(() => {});
   // 页面创建时执行
   useLoad(() => {});
 
@@ -63,10 +56,11 @@ export default function Page() {
 ##### 第三方依赖
 
 ```sh
+yarn add @react-native-lifecycle
 yarn add react-native-permissions
 ```
 
-##### APP 权限 Hooks
+##### 使用
 
 ```js
 import { usePermissions } from 'react-native-composition';
@@ -83,6 +77,48 @@ export default function Page() {
   const camera = usePermissions(
     [PERMISSIONS.IOS.CAMERA, PERMISSIONS.ANDROID.CAMERA],
     RESULTS.UNAVAILABLE,
+  );
+}
+```
+
+### usePageEventEmitter 页面级事件发射
+
+##### 第三方依赖
+
+```sh
+yarn add @react-native-lifecycle
+yarn add @react-navigation/native # >=5.7.0
+```
+
+##### 使用
+
+```js
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import { usePageEventEmitter } from 'react-native-composition';
+
+// 组件
+function Component() {
+  // 注册事件
+  usePageEventEmitter(() => {
+    console.log('Component');
+  });
+
+  return null;
+}
+
+// 页面
+export default function Page() {
+  const emit = usePageEventEmitter();
+
+  const _onPress = () => {
+    emit(); // 发射事件
+  };
+
+  return (
+    <TouchableOpacity onPress={_onPress}>
+      <Component />
+    </TouchableOpacity>
   );
 }
 ```
