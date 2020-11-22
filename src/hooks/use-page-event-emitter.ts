@@ -19,5 +19,7 @@ export default (key: string, effect?: EffectCallback) => {
     }
   });
 
-  return () => DeviceEventEmitter.emit(eventKey);
+  return {
+    emit: () => DeviceEventEmitter.emit(eventKey),
+  };
 };

@@ -109,10 +109,10 @@ function Component() {
 
 // 页面
 export default function Page() {
-  const emit = usePageEventEmitter('Click TouchableOpacity');
+  const refresh = usePageEventEmitter('Click TouchableOpacity');
 
   const _onPress = () => {
-    emit(); // 发射事件
+    refresh.emit(); // 发射事件
   };
 
   return (
