@@ -1,6 +1,6 @@
 {
   "name": "react-native-composition",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "React Native Composition API",
   "peerDependencies": {
     "@react-navigation/native": ">=5.7.0",
@@ -10,12 +10,15 @@
     "react-native-permissions": "^2.2.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/react": "^16.9.56",
     "@types/react-native": "^0.63.33",
     "@types/react-native-permissions": "^2.0.0",
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
+    "standard-version": "^9.0.0",
     "typescript": "^4.0.5"
   },
   "main": "dist/index.js",
@@ -23,7 +26,9 @@
   "author": "Devin.Zhu <chooin@126.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "echo",
+    "release": "standard-version --skip.tag --release-as"
   },
   "files": [
     "dist",
@@ -36,6 +41,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
   }
