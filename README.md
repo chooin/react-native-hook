@@ -100,7 +100,7 @@ import { usePageEventEmitter } from 'react-native-composition';
 // 组件
 function Component() {
   // 注册事件
-  usePageEventEmitter('Click TouchableOpacity', () => {
+  usePageEventEmitter('Event emitter name', () => {
     console.log('Component');
   });
 
@@ -109,7 +109,7 @@ function Component() {
 
 // 页面
 export default function Page() {
-  const refresh = usePageEventEmitter('Click TouchableOpacity');
+  const refresh = usePageEventEmitter('Event emitter name');
 
   const _onPress = () => {
     refresh.emit(); // 发射事件
