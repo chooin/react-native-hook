@@ -6,14 +6,15 @@
 yarn add react-native-composition
 ```
 
-### 生命周期
-
 ##### 第三方依赖
 
 ```sh
-yarn add react-native-lifecycle
-yarn add @react-navigation/native # >=5.7.0
+yarn add react-native-lifecycle # 生命周期依赖
+yarn add @react-navigation/native # 生命周期依赖 >=5.7.0
+yarn add react-native-permissions # 权限
 ```
+
+### 生命周期
 
 ##### 使用
 
@@ -53,13 +54,6 @@ export default function Page() {
 
 ### APP 权限
 
-##### 第三方依赖
-
-```sh
-yarn add react-native-lifecycle
-yarn add react-native-permissions
-```
-
 ##### 使用
 
 ```js
@@ -82,13 +76,6 @@ export default function Page() {
 ```
 
 ### usePageEventEmitter 页面级事件发射
-
-##### 第三方依赖
-
-```sh
-yarn add react-native-lifecycle
-yarn add @react-navigation/native # >=5.7.0
-```
 
 ##### 使用
 
@@ -124,13 +111,6 @@ export default function Page() {
 ```
 
 ### usePageInterval 页面级 Interval
-
-##### 第三方依赖
-
-```sh
-yarn add react-native-lifecycle
-yarn add @react-navigation/native # >=5.7.0
-```
 
 ##### 使用
 

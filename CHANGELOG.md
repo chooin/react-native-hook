@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 - usePageEventEmitter ([878eda2](https://github.com/Chooin/react-native-composition/commit/878eda2ee95d92c4b8fd2117984dde503e1a17f0))
-- 支持 use-permissions ([606ff86](https://github.com/Chooin/react-native-composition/commit/606ff86f417690a77be42a91e8468235f006f102))x
+- 支持 use-permissions ([606ff86](https://github.com/Chooin/react-native-composition/commit/606ff86f417690a77be42a91e8468235f006f102))
 
 ### Bug Fixes
 
