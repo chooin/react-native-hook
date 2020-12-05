@@ -4,15 +4,17 @@ import {
   check,
   IOSPermission,
   AndroidPermission,
+  WindowsPermission,
   PermissionStatus,
   RESULTS,
 } from 'react-native-permissions';
 import { useShow, useHide } from 'react-native-lifecycle';
 
 type Permissions =
-  | (IOSPermission | AndroidPermission)[]
+  | (IOSPermission | AndroidPermission | WindowsPermission)[]
   | IOSPermission
-  | AndroidPermission;
+  | AndroidPermission
+  | WindowsPermission;
 
 export default (
   permissions: Permissions,
@@ -25,7 +27,9 @@ export default (
       permissions = [permissions];
     }
     Promise.all(
-      permissions.filter(item => item.startsWith(Platform.OS)).map(check),
+      permissions
+        .filter((item: any) => item && item.startsWith(Platform.OS))
+        .map(check),
     ).then(res => {
       setState(res.every(item => item === permissionStatus));
     });
