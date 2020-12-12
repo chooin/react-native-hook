@@ -27,7 +27,7 @@ import {
   useHide,
   useUnload,
   useResize,
-} from 'react-native-permissions';
+} from 'react-native-lifecycle';
 
 export default function Page() {
   // App 从后台变为前台时执行
