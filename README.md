@@ -123,3 +123,33 @@ export default function Page() {
   }, 60 * 1000);
 }
 ```
+
+### useKeyboard
+
+##### 使用
+
+```js
+import { useKeyboard } from 'react-native-composition';
+
+export default function Page() {
+  const keyboard = useKeyboard();
+  // {
+  //   "coordinates": {
+  //     "end": {
+  //       "height": 336,
+  //       "screenX": 0,
+  //       "screenY": 812,
+  //       "width": 375
+  //     },
+  //     "start": {
+  //       "height": 336,
+  //       "screenX": 0,
+  //       "screenY": 476,
+  //       "width": 375
+  //     }
+  //   },
+  //   "keyboardHeight": 336,
+  //   "keyboardShown": false
+  // }
+}
+```

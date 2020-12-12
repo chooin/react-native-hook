@@ -3,6 +3,10 @@ import { DeviceEventEmitter } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
+export interface PageEventEmitter {
+  emit: () => void;
+}
+
 export default (key: string, effect?: EffectCallback) => {
   const route = useRoute();
   const eventKey = `${route.key}__${key}`;
