@@ -21,6 +21,7 @@ export interface KeyboardParams {
     end: ScreenRect;
   };
   keyboardHeight: number;
+  dismiss: () => void;
 }
 
 export default (): KeyboardParams => {
@@ -55,6 +56,10 @@ export default (): KeyboardParams => {
     }
   };
 
+  const dismiss = () => {
+    Keyboard.dismiss();
+  };
+
   useLoad(() => {
     Keyboard.addListener('keyboardWillShow', onKeyboardWillShow);
     Keyboard.addListener('keyboardDidShow', onKeyboardDidShow);
@@ -73,5 +78,6 @@ export default (): KeyboardParams => {
     keyboardShown: shown,
     coordinates,
     keyboardHeight,
+    dismiss,
   };
 };

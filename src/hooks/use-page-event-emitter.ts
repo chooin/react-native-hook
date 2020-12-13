@@ -7,7 +7,7 @@ export interface PageEventEmitter {
   emit: () => void;
 }
 
-export default (key: string, effect?: EffectCallback) => {
+export default (key: string, effect?: EffectCallback): PageEventEmitter => {
   const route = useRoute();
   const eventKey = `${route.key}__${key}`;
 
