@@ -28,7 +28,7 @@ export default (
     }
     Promise.all(
       permissions
-        .filter((item: any) => item && item.startsWith(Platform.OS))
+        .filter((item: string) => item && item.startsWith(Platform.OS))
         .map(check),
     ).then(res => {
       setState(res.every(item => item === permissionStatus));
