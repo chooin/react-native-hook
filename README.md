@@ -58,7 +58,7 @@ export default function Page() {
 
 ```js
 import { usePermissions } from 'react-native-composition';
-import { PERMISSIONS, RESULTS } from 'react-native-permissions';
+import { PERMISSIONS, RESULTS, openSettings } from 'react-native-permissions';
 
 export default function Page() {
   // 权限是否打开
@@ -72,6 +72,19 @@ export default function Page() {
     [PERMISSIONS.IOS.CAMERA, PERMISSIONS.ANDROID.CAMERA],
     RESULTS.UNAVAILABLE,
   );
+
+  // 输出权限状态
+  console.log(location.state);
+
+  // 请求权限
+  location
+    .request()
+    .then(() => {
+      // 成功
+    })
+    .catch(() => {
+      openSettings();
+    });
 }
 ```
 
