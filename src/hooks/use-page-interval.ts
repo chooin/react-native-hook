@@ -1,11 +1,11 @@
 import { EffectCallback, useRef } from 'react';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-export default (effect: EffectCallback, timeout: number) => {
+export default (effect: EffectCallback, ms: number) => {
   const i = useRef<any>(null);
 
   useLoad(() => {
-    i.current = setInterval(effect, timeout);
+    i.current = setInterval(effect, ms);
   });
 
   useUnload(() => {

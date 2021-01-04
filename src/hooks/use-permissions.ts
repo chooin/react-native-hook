@@ -8,20 +8,21 @@ import {
   WindowsPermission,
   PermissionStatus,
   RESULTS,
+  openSettings,
 } from 'react-native-permissions';
 import { useShow, useHide } from 'react-native-lifecycle';
 
 type Permission = IOSPermission | AndroidPermission | WindowsPermission;
 type Permissions = Permission[];
-type PermissionsResult = {
+type PermissionsParams = {
   state: boolean | null;
-  request: () => Promise<void>;
+  request: () => Promise<void | { openSettings: Promise<void> }>;
 };
 
 export default (
   permissions: Permissions,
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
-): PermissionsResult => {
+): PermissionsParams => {
   const [state, setState] = useState<boolean | null>(null);
   if (typeof permissions === 'string') {
     permissions = [permissions];
@@ -54,7 +55,9 @@ export default (
         ) {
           resolve();
         } else {
-          reject();
+          reject({
+            openSettings,
+          });
         }
       });
     });
