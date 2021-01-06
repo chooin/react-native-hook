@@ -170,7 +170,7 @@ export default function Page() {
 }
 ```
 
-### useKeyboard
+### useGestureEnabled
 
 ##### 使用
 
