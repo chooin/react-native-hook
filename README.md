@@ -35,6 +35,7 @@ export default function Page() {
 
   // App 从前台变为后台时执行
   useAppInactive(() => {});
+
   // 页面创建时执行
   useLoad(() => {});
 
@@ -58,7 +59,7 @@ export default function Page() {
 
 ```js
 import { usePermissions } from 'react-native-composition';
-import { PERMISSIONS, RESULTS, openSettings } from 'react-native-permissions';
+import { PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 export default function Page() {
   // 权限是否打开
@@ -77,14 +78,16 @@ export default function Page() {
   console.log(location.state);
 
   // 请求权限
-  location
-    .request()
-    .then(() => {
-      // 成功
-    })
-    .catch(() => {
-      openSettings();
-    });
+  if (location.state === false) {
+    location
+      .request()
+      .then(() => {
+        // 成功
+      })
+      .catch(({ openSettings }) => {
+        openSettings();
+      });
+  }
 }
 ```
 
@@ -164,5 +167,17 @@ export default function Page() {
   //   "keyboardHeight": 336,
   //   "keyboardShown": false
   // }
+}
+```
+
+### useKeyboard
+
+##### 使用
+
+```js
+import { useGestureEnabled } from 'react-native-composition';
+
+export default function Page() {
+  useGestureEnabled(false);
 }
 ```
