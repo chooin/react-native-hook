@@ -170,14 +170,14 @@ export default function Page() {
 }
 ```
 
-### useGestureEnabled
+### usePageGestureEnabled
 
 ##### 使用
 
 ```js
-import { useGestureEnabled } from 'react-native-composition';
+import { usePageGestureEnabled } from 'react-native-composition';
 
 export default function Page() {
-  useGestureEnabled(false);
+  usePageGestureEnabled(false);
 }
 ```
