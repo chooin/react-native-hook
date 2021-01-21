@@ -82,7 +82,7 @@ export default function Page() {
     location
       .request()
       .then(() => {
-        // 成功
+        // 所有权限都已打开
       })
       .catch(({ openSettings }) => {
         openSettings();
@@ -91,7 +91,9 @@ export default function Page() {
 }
 ```
 
-### usePageEventEmitter 页面级事件发射
+### usePageEventEmitter
+
+> 页面级事件发射，可以给父子组件发送事件
 
 ##### 使用
 
@@ -126,7 +128,9 @@ export default function Page() {
 }
 ```
 
-### usePageInterval 页面级 Interval
+### usePageInterval
+
+> 页面创建时执行，页面销毁时销毁
 
 ##### 使用
 
@@ -140,7 +144,23 @@ export default function Page() {
 }
 ```
 
+### useAppActiveInterval
+
+> 页面创建时、App 从后台变为前台时执行，页面销毁时、App 从前台变为后台时销毁
+
+```js
+import { useAppActiveInterval } from 'react-native-composition';
+
+export default function Page() {
+  useAppActiveInterval(() => {
+    console.log('useAppActiveInterval');
+  }, 60 * 1000);
+}
+```
+
 ### useKeyboard
+
+> 键盘
 
 ##### 使用
 
@@ -171,6 +191,8 @@ export default function Page() {
 ```
 
 ### usePageGestureEnabled
+
+> 页面滑动手势控制
 
 ##### 使用
 

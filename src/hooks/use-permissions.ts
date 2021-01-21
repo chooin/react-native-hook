@@ -14,16 +14,18 @@ import { useShow, useHide } from 'react-native-lifecycle';
 
 type Permission = IOSPermission | AndroidPermission | WindowsPermission;
 type Permissions = Permission[];
+type Request = Promise<void | { openSettings: Promise<void> }>;
+type State = boolean | null;
 type PermissionsParams = {
-  state: boolean | null;
-  request: () => Promise<void | { openSettings: Promise<void> }>;
+  state: State;
+  request: () => Request;
 };
 
 export default (
   permissions: Permissions,
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): PermissionsParams => {
-  const [state, setState] = useState<boolean | null>(null);
+  const [state, setState] = useState<State>(null);
   if (typeof permissions === 'string') {
     permissions = [permissions];
   }
@@ -32,10 +34,10 @@ export default (
   ) as Permissions;
 
   useShow(() => {
-    checkMultiple(permissions).then(states => {
+    checkMultiple(permissions).then(statuses => {
       setState(
         permissions.every(
-          permission => states[permission] === permissionStatus,
+          permission => statuses[permission] === permissionStatus,
         ),
       );
     });
@@ -45,12 +47,12 @@ export default (
     setState(null);
   });
 
-  const request = (): Promise<void> => {
+  const request = (): Request => {
     return new Promise((resolve, reject) => {
-      requestMultiple(permissions).then(states => {
+      requestMultiple(permissions).then(statuses => {
         if (
           permissions.every(
-            permission => states[permission] === permissionStatus,
+            permission => statuses[permission] === permissionStatus,
           )
         ) {
           resolve();
