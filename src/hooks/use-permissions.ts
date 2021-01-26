@@ -52,7 +52,7 @@ export default (
       requestMultiple(permissions).then(statuses => {
         if (
           permissions.every(
-            permission => statuses[permission] === permissionStatus,
+            permission => statuses[permission] === RESULTS.GRANTED,
           )
         ) {
           resolve();

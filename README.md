@@ -192,7 +192,7 @@ export default function Page() {
 
 ### usePageGestureEnabled
 
-> 页面滑动手势控制
+> 是否支持右滑返回到上个页面
 
 ##### 使用
 
