@@ -1,6 +1,7 @@
 export * from 'react-native-lifecycle';
+export * from '@react-native-community/hooks';
+
 export { default as usePermissions } from './hooks/use-permissions';
-export { default as useKeyboard } from './hooks/use-keyboard';
 
 // ? Page 只建议在 Page/Screen 主入口使用
 export { default as usePageEventEmitter } from './hooks/use-page-event-emitter';
