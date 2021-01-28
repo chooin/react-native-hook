@@ -1,6 +1,6 @@
 {
   "name": "react-native-composition",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "React Native Composition API",
   "peerDependencies": {
     "react-native-permissions": ">= 2.2.2"
@@ -44,7 +44,6 @@
     }
   },
   "dependencies": {
-    "@react-navigation/native": "^5.7.0",
     "@react-native-community/hooks": "^2.6.0",
     "react-native-lifecycle": "^1.1.4"
   }
