@@ -1,13 +1,13 @@
 {
   "name": "react-native-composition",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "React Native Composition API",
   "peerDependencies": {
-    "react-native-permissions": "^2.2.2"
+    "react-native-permissions": ">= 2.2.2"
   },
   "devDependencies": {
-    "react": ">=0.16.8",
-    "react-native": ">=0.60.0",
+    "react": "^0.16.8",
+    "react-native": "^0.60.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@types/react": "^16.9.56",
@@ -44,7 +44,7 @@
     }
   },
   "dependencies": {
-    "@react-navigation/native": ">=5.7.0",
+    "@react-navigation/native": "^5.7.0",
     "@react-native-community/hooks": "^2.6.0",
     "react-native-lifecycle": "^1.1.4"
   }
