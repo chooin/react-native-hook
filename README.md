@@ -9,8 +9,6 @@ yarn add react-native-composition
 ##### 第三方依赖
 
 ```sh
-yarn add react-native-lifecycle # 生命周期依赖
-yarn add @react-navigation/native # 生命周期依赖 >=5.7.0
 yarn add react-native-permissions # 权限
 ```
 
@@ -27,7 +25,7 @@ import {
   useHide,
   useUnload,
   useResize,
-} from 'react-native-lifecycle';
+} from 'react-native-composition';
 
 export default function Page() {
   // App 从后台变为前台时执行
