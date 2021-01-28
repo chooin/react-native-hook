@@ -62,7 +62,7 @@ import { PERMISSIONS, RESULTS } from 'react-native-permissions';
 export default function Page() {
   // 权限是否打开
   // 检查 ios 端 PERMISSIONS.IOS.LOCATION_ALWAYS 权限是否打开
-  const location = usePermissions(PERMISSIONS.IOS.LOCATION_ALWAYS);
+  const location = usePermissions([PERMISSIONS.IOS.LOCATION_ALWAYS]);
 
   // 权限是否不可用
   // ios 端检查 PERMISSIONS.IOS.CAMERA 权限是否不可用
