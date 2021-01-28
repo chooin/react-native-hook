@@ -1,12 +1,10 @@
 {
   "name": "react-native-composition",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "React Native Composition API",
   "peerDependencies": {
-    "@react-navigation/native": ">=5.7.0",
     "react": ">=0.16.8",
     "react-native": ">=0.60.0",
-    "react-native-lifecycle": "^1.1.4",
     "react-native-permissions": "^2.2.2"
   },
   "devDependencies": {
@@ -44,5 +42,10 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
+  },
+  "dependencies": {
+    "@react-navigation/native": ">=5.7.0",
+    "@react-native-community/hooks": "^2.6.0",
+    "react-native-lifecycle": "^1.1.4"
   }
 }
