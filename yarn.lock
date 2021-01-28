@@ -4746,9 +4746,11 @@ react-is@^16.13.0, react-is@^16.8.1, react-is@^16.8.4:
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-native-lifecycle@^1.1.4:
-  version "1.1.5"
-  resolved "https://registry.npmjs.org/react-native-lifecycle/-/react-native-lifecycle-1.1.5.tgz#b91b297d637d500a3dec6627268986bcde79951e"
-  integrity sha512-cBgqyXL+sBo/mdN5NOlxmt26tjPOQ4YSHfQwqiyXLzka08t72db+FI7scUWiuQf/PDizhCaAl67l3D4RL/9NzA==
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/react-native-lifecycle/-/react-native-lifecycle-1.2.0.tgz#aadcd44095fc6d6cfaaa19266cb09ebe21090517"
+  integrity sha512-IVdwpdB014k3kHUdk7H3w7kRj7eNIy0Om57rtCeeqwcgMFyhBBQCCoJwrKgt8mqYWB+Mu/gr006P795jv2/4cw==
+  dependencies:
+    "@react-navigation/native" "^5.7.0"
 
 react-native-permissions@*:
   version "3.0.0"
