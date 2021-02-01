@@ -3,7 +3,11 @@ import { useLoad, useUnload } from 'react-native-lifecycle';
 import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 
-export default (enabled: boolean) => {
+type PageGestureEnabledParams = {
+  setEnabled: (enabled: boolean) => void;
+};
+
+export default (enabled: boolean): PageGestureEnabledParams => {
   const enabledRef = useRef(enabled);
   const navigation = useNavigation();
 
@@ -15,8 +19,11 @@ export default (enabled: boolean) => {
     }
   };
 
-  const setEnabled = (enabled: boolean) => {
+  const setEnabled = (enabled: boolean): void => {
     enabledRef.current = enabled;
+    navigation.setOptions({
+      gestureEnabled: enabled,
+    });
   };
 
   useLoad(() => {
