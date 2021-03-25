@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "@react-native-community/hooks": "^2.6.0",
-    "react-native-lifecycle": "^1.1.4"
+    "react-native-lifecycle": "^1.2.1"
   }
 }
