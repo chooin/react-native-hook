@@ -1,6 +1,3 @@
-export * from 'react-native-lifecycle';
-export * from '@react-native-community/hooks';
-
 export { default as usePermissions } from './hooks/use-permissions';
 
 // ? Page 只建议在 Page/Screen 主入口使用

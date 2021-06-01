@@ -9,6 +9,7 @@ yarn add react-native-composition
 ##### 第三方依赖
 
 ```sh
+yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
 

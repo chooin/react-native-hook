@@ -42,9 +42,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "dependencies": {
-    "@react-native-community/hooks": "^2.6.0",
-    "react-native-lifecycle": "^1.2.1"
   }
 }
