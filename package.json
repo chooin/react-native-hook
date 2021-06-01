@@ -3,7 +3,8 @@
   "version": "2.5.1",
   "description": "React Native Composition API",
   "peerDependencies": {
-    "react-native-permissions": ">= 2.2.2"
+    "react-native-permissions": ">= 2.2.2",
+    "react-native-lifecycle": ">= 1.2.1"
   },
   "devDependencies": {
     "react": "^0.16.8",
