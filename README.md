@@ -52,6 +52,25 @@ export default function Page() {
 }
 ```
 
+```js
+import { permissions } from 'react-native-composition';
+import { PERMISSIONS, RESULTS } from 'react-native-permissions';
+
+export default function Page() {
+  permissions
+    .request(
+      [PERMISSIONS.IOS.CAMERA, PERMISSIONS.ANDROID.CAMERA],
+      RESULTS.GRANTED,
+    )
+    .then(() => {
+      // 权限申请成功或有当前权限
+    })
+    .catch(({ openSettings }) => {
+      openSettings();
+    });
+}
+```
+
 ### usePageEventEmitter
 
 > 页面级事件发射，可以给父子组件发送事件

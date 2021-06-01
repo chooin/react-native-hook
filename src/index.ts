@@ -7,3 +7,5 @@ export { default as usePageGestureEnabled } from './hooks/use-page-gesture-enabl
 
 // ? App Active
 export { default as useAppActiveInterval } from './hooks/use-app-active-interval';
+
+export * as permissions from './utils/permissions';
