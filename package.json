@@ -1,10 +1,11 @@
 {
   "name": "react-native-composition",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "React Native Composition API",
   "peerDependencies": {
     "react-native-permissions": ">= 2.2.2",
-    "react-native-lifecycle": ">= 1.2.1"
+    "react-native-lifecycle": ">= 1.2.1",
+    "@react-navigation/native": ">= 5.7.0"
   },
   "devDependencies": {
     "react": "^0.16.8",
