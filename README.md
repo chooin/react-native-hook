@@ -63,7 +63,7 @@ export default function Page() {
       RESULTS.GRANTED,
     )
     .then(() => {
-      // 权限申请成功或有当前权限
+      // 所有权限都已打开
     })
     .catch(({ openSettings }) => {
       openSettings();
