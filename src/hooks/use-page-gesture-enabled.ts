@@ -12,11 +12,7 @@ export default (enabled: boolean): PageGestureEnabledParams => {
   const navigation = useNavigation();
 
   const _onHardwareBackPress = () => {
-    if (enabledRef.current) {
-      return false;
-    } else {
-      return true;
-    }
+    return !enabledRef.current;
   };
 
   const setEnabled = (enabled: boolean): void => {

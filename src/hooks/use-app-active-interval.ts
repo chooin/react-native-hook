@@ -6,8 +6,8 @@ import {
   useAppInactive,
 } from 'react-native-lifecycle';
 
-export default (effect: EffectCallback, ms: number) => {
-  const i = useRef<any>(null);
+export default (effect: EffectCallback, ms: number): void => {
+  const i = useRef<number | null>(null);
   const appActive = useRef<boolean>(true);
 
   useAppActive(() => {
