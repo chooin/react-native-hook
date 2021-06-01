@@ -14,45 +14,6 @@ yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
 
-### 生命周期
-
-##### 使用
-
-```js
-import {
-  useAppActive,
-  useAppInactive,
-  useLoad,
-  useShow,
-  useHide,
-  useUnload,
-  useResize,
-} from 'react-native-composition';
-
-export default function Page() {
-  // App 从后台变为前台时执行
-  useAppActive(() => {});
-
-  // App 从前台变为后台时执行
-  useAppInactive(() => {});
-
-  // 页面创建时执行
-  useLoad(() => {});
-
-  // 页面出现在前台时执行
-  useShow(() => {});
-
-  // 页面从前台变为后台时执行
-  useHide(() => {});
-
-  // 页面销毁时执行
-  useUnload(() => {});
-
-  // 页面尺寸变化时执行
-  useResize(() => {});
-}
-```
-
 ### APP 权限
 
 ##### 使用
