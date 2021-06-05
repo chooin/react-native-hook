@@ -35,20 +35,22 @@ export default function Page() {
     RESULTS.UNAVAILABLE,
   );
 
-  // 输出权限状态
+  // 权限状态
   console.log(location.state);
 
   // 请求权限
-  if (location.state === false) {
-    location
-      .request()
-      .then(() => {
-        // 所有权限都已打开
-      })
-      .catch(({ openSettings }) => {
-        openSettings();
-      });
-  }
+  const onClick = () => {
+    if (location.state === false) {
+      location
+        .request()
+        .then(() => {
+          // 所有权限都已打开
+        })
+        .catch(({ openSettings }) => {
+          openSettings();
+        });
+    }
+  };
 }
 ```
 
@@ -96,12 +98,12 @@ function Component() {
 export default function Page() {
   const refresh = usePageEventEmitter('Event emitter name');
 
-  const _onPress = () => {
+  const onClick = () => {
     refresh.emit(); // 发射事件
   };
 
   return (
-    <TouchableOpacity onPress={_onPress}>
+    <TouchableOpacity onPress={onClick}>
       <Component />
     </TouchableOpacity>
   );
