@@ -148,6 +148,10 @@ export default function Page() {
 import { usePageGestureEnabled } from 'react-native-composition';
 
 export default function Page() {
-  usePageGestureEnabled(false);
+  const pageGestureEnabled = usePageGestureEnabled(false);
+
+  const onClick = () => {
+    pageGestureEnabled.setEnabled(true);
+  };
 }
 ```
