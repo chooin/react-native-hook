@@ -120,9 +120,13 @@ export default function Page() {
 import { usePageInterval } from 'react-native-composition';
 
 export default function Page() {
-  usePageInterval(() => {
+  const pageInterval = usePageInterval(() => {
     console.log('usePageInterval');
   }, 60 * 1000);
+
+  const onClick = () => {
+    pageInterval.setActive(false);
+  };
 }
 ```
 
@@ -134,9 +138,13 @@ export default function Page() {
 import { useAppActiveInterval } from 'react-native-composition';
 
 export default function Page() {
-  useAppActiveInterval(() => {
+  const appActiveInterval = useAppActiveInterval(() => {
     console.log('useAppActiveInterval');
   }, 60 * 1000);
+
+  const onClick = () => {
+    appActiveInterval.setActive(false);
+  };
 }
 ```
 
