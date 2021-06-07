@@ -1,6 +1,6 @@
 {
   "name": "react-native-composition",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "React Native Composition API",
   "peerDependencies": {
     "react-native-permissions": ">= 2.2.2",
@@ -27,8 +27,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "test": "echo",
-    "release": "standard-version --skip.tag --release-as"
+    "test": "echo"
   },
   "files": [
     "dist",

@@ -6,9 +6,32 @@ import {
   useAppInactive,
 } from 'react-native-lifecycle';
 
-export default (effect: EffectCallback, ms: number): void => {
+export interface AppActiveIntervalOptions {
+  /**
+   * setInterval 是否运行
+   *
+   * @default true
+   */
+  active?: boolean;
+}
+
+export interface AppActiveInterval {
+  /**
+   * 设置 setInterval 是否运行
+   * @param active
+   */
+  setActive: (active: boolean) => void;
+}
+
+export default (
+  effect: EffectCallback,
+  ms: number,
+  options: AppActiveIntervalOptions = {},
+): AppActiveInterval => {
+  const { active = true } = options;
   const i = useRef<number | null>(null);
   const appActive = useRef<boolean>(true);
+  const isActive = useRef<boolean>(active);
 
   useAppActive(() => {
     appActive.current = true;
@@ -20,7 +43,7 @@ export default (effect: EffectCallback, ms: number): void => {
 
   useLoad(() => {
     i.current = setInterval(() => {
-      if (appActive.current) {
+      if (appActive.current && isActive.current) {
         effect();
       }
     }, ms);
@@ -31,4 +54,12 @@ export default (effect: EffectCallback, ms: number): void => {
       clearInterval(i.current);
     }
   });
+
+  const setActive = (active: boolean) => {
+    isActive.current = active;
+  };
+
+  return {
+    setActive,
+  };
 };

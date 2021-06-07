@@ -4,6 +4,9 @@ import { useRoute } from '@react-navigation/native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
 export interface PageEventEmitterParams {
+  /**
+   * 运行事件
+   */
   emit: () => void;
 }
 
