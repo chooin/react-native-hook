@@ -13,8 +13,11 @@ import {
 type Permission = IOSPermission | AndroidPermission | WindowsPermission;
 type Permissions = Permission[];
 type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
-
-export const request = (
+/**
+ * @param permissions
+ * @param permissionStatus
+ */
+const request = (
   permissions: Permissions,
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): RequestResponse => {
@@ -43,4 +46,8 @@ export const request = (
       }
     });
   });
+};
+
+export default {
+  request,
 };
