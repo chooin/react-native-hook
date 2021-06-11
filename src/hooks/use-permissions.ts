@@ -3,17 +3,13 @@ import { Platform } from 'react-native';
 import {
   checkMultiple,
   requestMultiple,
-  IOSPermission,
-  AndroidPermission,
-  WindowsPermission,
+  Permission,
   PermissionStatus,
   RESULTS,
   openSettings,
 } from 'react-native-permissions';
 import { useShow, useHide } from 'react-native-lifecycle';
 
-type Permission = IOSPermission | AndroidPermission | WindowsPermission;
-type Permissions = Permission[];
 type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
 type State = boolean | null;
 type PermissionsParams = {
@@ -22,7 +18,7 @@ type PermissionsParams = {
 };
 
 export default (
-  permissions: Permissions,
+  permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): PermissionsParams => {
   const [state, setState] = useState<State>(null);

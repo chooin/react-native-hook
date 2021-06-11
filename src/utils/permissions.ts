@@ -2,25 +2,21 @@ import { Platform } from 'react-native';
 import {
   checkMultiple,
   requestMultiple,
-  IOSPermission,
-  AndroidPermission,
-  WindowsPermission,
+  Permission,
   PermissionStatus,
   RESULTS,
   openSettings,
 } from 'react-native-permissions';
 
-type Permission = IOSPermission | AndroidPermission | WindowsPermission;
-type Permissions = Permission[];
-type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
+type PermissionsRequest = Promise<void | { openSettings: Promise<void> }>;
 /**
  * @param permissions
  * @param permissionStatus
  */
 const request = (
-  permissions: Permissions,
+  permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
-): RequestResponse => {
+): PermissionsRequest => {
   return new Promise((resolve, reject) => {
     permissions.filter((item: string) => item && item.startsWith(Platform.OS));
     checkMultiple(permissions).then(checkMultipleStates => {
