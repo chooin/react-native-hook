@@ -23,8 +23,7 @@
   "author": "Devin.Zhu <chooin@126.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "test": "echo"
+    "build": "tsc"
   },
   "files": [
     "dist",
