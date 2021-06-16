@@ -4,9 +4,17 @@ import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 
 type PageGestureEnabledParams = {
+  /**
+   * 是否激活
+   */
   setEnabled: (enabled: boolean) => void;
 };
 
+/**
+ *  页面手势返回
+ * @param {boolean} enabled 是否激活
+ * @public
+ */
 export default (enabled: boolean): PageGestureEnabledParams => {
   const enabledRef = useRef(enabled);
   const navigation = useNavigation();

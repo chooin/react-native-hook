@@ -9,9 +9,12 @@ import {
 } from 'react-native-permissions';
 
 type PermissionsRequest = Promise<void | { openSettings: Promise<void> }>;
+
 /**
- * @param permissions
- * @param permissionStatus
+ * 权限
+ * @param {Permission[]} permissions 权限列表
+ * @param {RESULTS} permissionStatus default RESULTS.GRANTED
+ * @public
  */
 const request = (
   permissions: Permission[],

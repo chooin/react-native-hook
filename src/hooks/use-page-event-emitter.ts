@@ -5,11 +5,17 @@ import { useLoad, useUnload } from 'react-native-lifecycle';
 
 export interface PageEventEmitterParams {
   /**
-   * 运行事件
+   * 订阅事件
    */
   emit: () => void;
 }
 
+/**
+ * 页面级事件订阅
+ * @param {string} key 事件名称
+ * @param {function} effect 订阅事件
+ * @public
+ */
 export default (
   key: string,
   effect?: EffectCallback,

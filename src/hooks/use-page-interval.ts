@@ -3,8 +3,7 @@ import { useLoad, useUnload } from 'react-native-lifecycle';
 
 export interface PageIntervalOptions {
   /**
-   * setInterval 是否运行
-   *
+   * setInterval 是否激活
    * @default true
    */
   active?: boolean;
@@ -18,6 +17,14 @@ export interface PageInterval {
   setActive: (active: boolean) => void;
 }
 
+/**
+ * 页面定时器，页面释放时释放
+ * @param {function} effect
+ * @param {number} ms 毫秒 default RESULTS.GRANTED
+ * @param {object} options
+ * @param {boolean} options.active 是否激活 default true
+ * @public
+ */
 export default (
   effect: EffectCallback,
   ms: number,

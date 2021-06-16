@@ -8,8 +8,7 @@ import {
 
 export interface AppActiveIntervalOptions {
   /**
-   * setInterval 是否运行
-   *
+   * setInterval 是否激活
    * @default true
    */
   active?: boolean;
@@ -18,11 +17,19 @@ export interface AppActiveIntervalOptions {
 export interface AppActiveInterval {
   /**
    * 设置 setInterval 是否运行
-   * @param active
+   * @param {boolean} active
    */
   setActive: (active: boolean) => void;
 }
 
+/**
+ * App 定时器，App 活跃时激活，App 后台运行时停止
+ * @param {function} effect 事件
+ * @param {number} ms 毫秒
+ * @param {object} options
+ * @param {boolean} options.active 是否激活 default true
+ * @public
+ */
 export default (
   effect: EffectCallback,
   ms: number,

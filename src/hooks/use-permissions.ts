@@ -17,6 +17,12 @@ type PermissionsParams = {
   request: () => RequestResponse;
 };
 
+/**
+ * 权限
+ * @param {Permission[]} permissions 权限列表
+ * @param {RESULTS} permissionStatus default RESULTS.GRANTED
+ * @public
+ */
 export default (
   permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
