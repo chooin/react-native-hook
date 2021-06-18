@@ -1,5 +1,8 @@
 # React Native Composition
 
+[![Latest Version on NPM](https://img.shields.io/npm/v/react-native-composition.svg?style=flat-square)](https://npmjs.com/package/react-native-composition)
+[![npm](https://img.shields.io/npm/dt/react-native-composition.svg?style=flat-square)](https://www.npmjs.com/package/react-native-composition)
+
 ### 如何安装
 
 ```sh
