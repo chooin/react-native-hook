@@ -16,7 +16,7 @@ export interface AppActiveIntervalOptions {
 
 export interface AppActiveInterval {
   /**
-   * 设置 setInterval 是否运行
+   * 设置 setInterval 是否启用
    * @param {boolean} enabled
    */
   setEnabled: (enabled: boolean) => void;
@@ -27,7 +27,7 @@ export interface AppActiveInterval {
  * @param {function} effect 事件
  * @param {number} ms 毫秒
  * @param {object} options
- * @param {boolean} options.enabled 是否激活 default true
+ * @param {boolean} options.enabled 是否启用 default true
  * @public
  */
 export default (
