@@ -125,7 +125,7 @@ export default function Page() {
   }, 60 * 1000);
 
   const onClick = () => {
-    pageInterval.setActive(false);
+    pageInterval.setEnabled(false);
   };
 }
 ```
@@ -143,7 +143,7 @@ export default function Page() {
   }, 60 * 1000);
 
   const onClick = () => {
-    appActiveInterval.setActive(false);
+    appActiveInterval.setEnabled(false);
   };
 }
 ```
