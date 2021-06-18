@@ -6,15 +6,15 @@ export interface PageIntervalOptions {
    * setInterval 是否激活
    * @default true
    */
-  active?: boolean;
+  enabled?: boolean;
 }
 
 export interface PageInterval {
   /**
    * 设置 setInterval 是否运行
-   * @param active
+   * @param enabled
    */
-  setActive: (active: boolean) => void;
+  setEnabled: (enabled: boolean) => void;
 }
 
 /**
@@ -22,7 +22,7 @@ export interface PageInterval {
  * @param {function} effect
  * @param {number} ms 毫秒 default RESULTS.GRANTED
  * @param {object} options
- * @param {boolean} options.active 是否激活 default true
+ * @param {boolean} options.enabled 是否激活 default true
  * @public
  */
 export default (
@@ -30,13 +30,13 @@ export default (
   ms: number,
   options: PageIntervalOptions = {},
 ): PageInterval => {
-  const { active = true } = options;
+  const { enabled = true } = options;
   const i = useRef<number | null>(null);
-  const isActive = useRef<boolean>(active);
+  const isEnabled = useRef<boolean>(enabled);
 
   useLoad(() => {
     i.current = setInterval(() => {
-      if (isActive.current) {
+      if (isEnabled.current) {
         effect();
       }
     }, ms);
@@ -48,11 +48,11 @@ export default (
     }
   });
 
-  const setActive = (active: boolean) => {
-    isActive.current = active;
+  const setEnabled = (enabled: boolean) => {
+    isEnabled.current = enabled;
   };
 
   return {
-    setActive,
+    setEnabled,
   };
 };

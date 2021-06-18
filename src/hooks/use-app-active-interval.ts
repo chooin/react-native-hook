@@ -8,18 +8,18 @@ import {
 
 export interface AppActiveIntervalOptions {
   /**
-   * setInterval 是否激活
+   * setInterval 是否启用
    * @default true
    */
-  active?: boolean;
+  enabled?: boolean;
 }
 
 export interface AppActiveInterval {
   /**
    * 设置 setInterval 是否运行
-   * @param {boolean} active
+   * @param {boolean} enabled
    */
-  setActive: (active: boolean) => void;
+  setEnabled: (enabled: boolean) => void;
 }
 
 /**
@@ -27,7 +27,7 @@ export interface AppActiveInterval {
  * @param {function} effect 事件
  * @param {number} ms 毫秒
  * @param {object} options
- * @param {boolean} options.active 是否激活 default true
+ * @param {boolean} options.enabled 是否激活 default true
  * @public
  */
 export default (
@@ -35,10 +35,10 @@ export default (
   ms: number,
   options: AppActiveIntervalOptions = {},
 ): AppActiveInterval => {
-  const { active = true } = options;
+  const { enabled = true } = options;
   const i = useRef<number | null>(null);
   const appActive = useRef<boolean>(true);
-  const isActive = useRef<boolean>(active);
+  const isEnabled = useRef<boolean>(enabled);
 
   useAppActive(() => {
     appActive.current = true;
@@ -50,7 +50,7 @@ export default (
 
   useLoad(() => {
     i.current = setInterval(() => {
-      if (appActive.current && isActive.current) {
+      if (appActive.current && isEnabled.current) {
         effect();
       }
     }, ms);
@@ -62,11 +62,11 @@ export default (
     }
   });
 
-  const setActive = (active: boolean) => {
-    isActive.current = active;
+  const setEnabled = (enabled: boolean) => {
+    isEnabled.current = enabled;
   };
 
   return {
-    setActive,
+    setEnabled,
   };
 };
