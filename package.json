@@ -4,7 +4,7 @@
   "description": "React Native Composition API",
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",
-    "react-native-lifecycle": ">= 1.2.1",
+    "react-native-lifecycle": ">= 1.2.2",
     "react-native-permissions": ">= 2.2.2"
   },
   "devDependencies": {
