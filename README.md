@@ -17,9 +17,9 @@ yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
 
-### APP 权限
+### App 权限
 
-> 检查 APP 权限是否开启，未开启则可以向系统申请开启
+> 检查 App 权限是否开启，未开启则可以向系统申请开启
 
 ##### 使用
 
