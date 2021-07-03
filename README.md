@@ -19,6 +19,8 @@ yarn add react-native-permissions # 权限
 
 ### APP 权限
 
+> 检查 APP 权限是否开启，未开启则可以向系统申请开启
+
 ##### 使用
 
 ```js
@@ -57,6 +59,10 @@ export default function Page() {
 }
 ```
 
+> 直接向系统申请未开启的权限
+
+##### 使用
+
 ```js
 import { permissions } from 'react-native-composition';
 import { PERMISSIONS, RESULTS } from 'react-native-permissions';
@@ -78,7 +84,7 @@ export default function Page() {
 
 ### usePageEventEmitter
 
-> 页面级事件发射，可以给父子组件发送事件
+> 事件触发与事件监听器功能（页面级事件，页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
@@ -115,7 +121,7 @@ export default function Page() {
 
 ### usePageInterval
 
-> 页面创建时执行，页面销毁时销毁
+> 定时器（页面级事件，页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
@@ -135,7 +141,9 @@ export default function Page() {
 
 ### useAppActiveInterval
 
-> 页面创建时、App 从后台变为前台时执行，页面销毁时、App 从前台变为后台时销毁
+> 定时器（App 级事件，App 活跃时执行）
+
+##### 使用
 
 ```js
 import { useAppActiveInterval } from 'react-native-composition';
@@ -153,7 +161,7 @@ export default function Page() {
 
 ### usePageGestureEnabled
 
-> 是否支持右滑返回到上个页面
+> 设置当前页面是否支持右滑返回（页面级事件，页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
