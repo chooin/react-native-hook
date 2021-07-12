@@ -26,7 +26,7 @@ yarn add react-native-permissions # 权限
 - [useAppActiveInterval](https://github.com/Chooin/react-native-composition#useappactiveinterval)
 - [usePageGestureEnabled](https://github.com/Chooin/react-native-composition#usepagegestureenabled)
 
-### App 权限
+### usePermissions
 
 > 检查 App 权限是否开启，未开启则可以向系统申请开启
 
