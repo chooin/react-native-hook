@@ -17,6 +17,15 @@ yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
 
+### API
+
+- [usePermissions](https://github.com/Chooin/react-native-composition#usepermissions)
+- [useEventEmitter](https://github.com/Chooin/react-native-composition#useeventemitter)
+- [usePageEventEmitter](https://github.com/Chooin/react-native-composition#usepageeventemitter)
+- [usePageInterval](https://github.com/Chooin/react-native-composition#usepageinterval)
+- [useAppActiveInterval](https://github.com/Chooin/react-native-composition#useappactiveinterval)
+- [usePageGestureEnabled](https://github.com/Chooin/react-native-composition#usepagegestureenabled)
+
 ### App 权限
 
 > 检查 App 权限是否开启，未开启则可以向系统申请开启
@@ -79,6 +88,43 @@ export default function Page() {
     .catch(({ openSettings }) => {
       openSettings();
     });
+}
+```
+
+### useEventEmitter
+
+> 事件触发与事件监听器功能
+
+##### 使用
+
+```js
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import { useEventEmitter } from 'react-native-composition';
+
+// 组件
+function Component() {
+  // 注册事件
+  useEventEmitter('Event emitter name', () => {
+    console.log('Component');
+  });
+
+  return null;
+}
+
+// 页面
+export default function App() {
+  const refresh = useEventEmitter('Event emitter name');
+
+  const onClick = () => {
+    refresh.emit(); // 发射事件
+  };
+
+  return (
+    <TouchableOpacity onPress={onClick}>
+      <Component />
+    </TouchableOpacity>
+  );
 }
 ```
 

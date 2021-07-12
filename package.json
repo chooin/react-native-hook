@@ -1,6 +1,6 @@
 {
   "name": "react-native-composition",
-  "version": "2.6.2",
+  "version": "2.7.0",
   "description": "React Native Composition API",
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",
@@ -31,11 +31,6 @@
     "dist",
     "src"
   ],
-  "lint-staged": {
-    "**/*.{js,ts}": [
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
