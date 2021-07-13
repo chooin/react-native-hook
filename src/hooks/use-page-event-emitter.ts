@@ -1,5 +1,5 @@
-import { EffectCallback } from 'react';
-import { DeviceEventEmitter } from 'react-native';
+import { EffectCallback, useRef } from 'react';
+import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
@@ -21,17 +21,25 @@ export default (
   effect?: EffectCallback,
 ): PageEventEmitterParams => {
   const route = useRoute();
+  const emitterSubscription = useRef<EmitterSubscription | null>(null);
   eventType = `${route.key}__${eventType}`;
 
   useLoad(() => {
     if (typeof effect === 'function') {
-      DeviceEventEmitter.addListener(eventType, effect);
+      emitterSubscription.current = DeviceEventEmitter.addListener(
+        eventType,
+        effect,
+      );
     }
   });
 
   useUnload(() => {
     if (typeof effect === 'function') {
-      DeviceEventEmitter.removeListener(eventType, effect);
+      if (typeof DeviceEventEmitter.removeListener === 'function') {
+        DeviceEventEmitter.removeListener(eventType, effect);
+      } else {
+        emitterSubscription.current?.remove();
+      }
     }
   });
 
