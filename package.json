@@ -1,6 +1,6 @@
 {
   "name": "react-native-composition",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "React Native Composition API",
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",

@@ -7,7 +7,7 @@ export interface PageEventEmitterParams {
   /**
    * 订阅事件
    */
-  emit: () => void;
+  emit: (...params: any[]) => void;
 }
 
 /**
@@ -44,6 +44,6 @@ export default (
   });
 
   return {
-    emit: () => DeviceEventEmitter.emit(eventType),
+    emit: (...params: any[]) => DeviceEventEmitter.emit(eventType, ...params),
   };
 };
