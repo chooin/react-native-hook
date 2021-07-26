@@ -105,8 +105,9 @@ import { useEventEmitter } from 'react-native-composition';
 // 组件
 function Component() {
   // 注册事件
-  useEventEmitter('Event emitter name', () => {
-    console.log('Component');
+  useEventEmitter('Event emitter name', (...params) => {
+    console.log('Hello', params);
+    // Hello World
   });
 
   return null;
@@ -117,7 +118,7 @@ export default function App() {
   const refresh = useEventEmitter('Event emitter name');
 
   const onClick = () => {
-    refresh.emit(); // 发射事件
+    refresh.emit('World'); // 发射事件
   };
 
   return (
@@ -142,8 +143,8 @@ import { usePageEventEmitter } from 'react-native-composition';
 // 组件
 function Component() {
   // 注册事件
-  usePageEventEmitter('Event emitter name', () => {
-    console.log('Component');
+  usePageEventEmitter('Event emitter name', (...params) => {
+    console.log('Hello', params);
   });
 
   return null;
@@ -154,7 +155,7 @@ export default function Page() {
   const refresh = usePageEventEmitter('Event emitter name');
 
   const onClick = () => {
-    refresh.emit(); // 发射事件
+    refresh.emit('World'); // 发射事件
   };
 
   return (
