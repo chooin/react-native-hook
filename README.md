@@ -105,7 +105,7 @@ import { useEventEmitter } from 'react-native-composition';
 // 组件
 function Component() {
   // 注册事件
-  useEventEmitter('Event emitter name', (...params) => {
+  useEventEmitter('Event emitter name', params => {
     console.log('Hello', params);
     // Hello World
   });
@@ -143,7 +143,7 @@ import { usePageEventEmitter } from 'react-native-composition';
 // 组件
 function Component() {
   // 注册事件
-  usePageEventEmitter('Event emitter name', (...params) => {
+  usePageEventEmitter('Event emitter name', params => {
     console.log('Hello', params);
     // Hello World
   });
