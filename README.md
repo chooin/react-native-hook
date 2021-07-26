@@ -145,6 +145,7 @@ function Component() {
   // 注册事件
   usePageEventEmitter('Event emitter name', (...params) => {
     console.log('Hello', params);
+    // Hello World
   });
 
   return null;
