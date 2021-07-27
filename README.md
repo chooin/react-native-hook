@@ -93,7 +93,7 @@ export default function Page() {
 
 ### useEventEmitter
 
-> 事件触发与事件监听器功能
+> 事件触发与事件监听器功能（页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
@@ -131,7 +131,7 @@ export default function App() {
 
 ### usePageEventEmitter
 
-> 事件触发与事件监听器功能（页面级事件，页面创建时创建，页面销毁时销毁）
+> 事件触发与事件监听器功能（页面级事件，仅当前页面有效，页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
