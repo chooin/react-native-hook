@@ -1,12 +1,12 @@
-# React Native Composition
+# React Native Hook
 
-[![Latest Version on NPM](https://img.shields.io/npm/v/react-native-composition.svg?style=flat-square)](https://npmjs.com/package/react-native-composition)
-[![npm](https://img.shields.io/npm/dt/react-native-composition.svg?style=flat-square)](https://www.npmjs.com/package/react-native-composition)
+[![Latest Version on NPM](https://img.shields.io/npm/v/react-native-hook.svg?style=flat-square)](https://npmjs.com/package/react-native-hook)
+[![npm](https://img.shields.io/npm/dt/react-native-hook.svg?style=flat-square)](https://www.npmjs.com/package/react-native-hook)
 
 ### 如何安装
 
 ```sh
-yarn add react-native-composition
+yarn add react-native-hook
 ```
 
 ##### 第三方依赖
@@ -19,12 +19,12 @@ yarn add react-native-permissions # 权限
 
 ### API
 
-- [usePermissions](https://github.com/Chooin/react-native-composition#usepermissions)
-- [useEventEmitter](https://github.com/Chooin/react-native-composition#useeventemitter)
-- [usePageEventEmitter](https://github.com/Chooin/react-native-composition#usepageeventemitter)
-- [usePageInterval](https://github.com/Chooin/react-native-composition#usepageinterval)
-- [useAppActiveInterval](https://github.com/Chooin/react-native-composition#useappactiveinterval)
-- [usePageGestureEnabled](https://github.com/Chooin/react-native-composition#usepagegestureenabled)
+- [usePermissions](https://github.com/Chooin/react-native-hook#usepermissions)
+- [useEventEmitter](https://github.com/Chooin/react-native-hook#useeventemitter)
+- [usePageEventEmitter](https://github.com/Chooin/react-native-hook#usepageeventemitter)
+- [usePageInterval](https://github.com/Chooin/react-native-hook#usepageinterval)
+- [useAppActiveInterval](https://github.com/Chooin/react-native-hook#useappactiveinterval)
+- [usePageGestureEnabled](https://github.com/Chooin/react-native-hook#usepagegestureenabled)
 
 ### usePermissions
 
@@ -33,7 +33,7 @@ yarn add react-native-permissions # 权限
 ##### 使用
 
 ```js
-import { usePermissions } from 'react-native-composition';
+import { usePermissions } from 'react-native-hook';
 import { PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 export default function Page() {
@@ -73,7 +73,7 @@ export default function Page() {
 ##### 使用
 
 ```js
-import { permissions } from 'react-native-composition';
+import { permissions } from 'react-native-hook';
 import { PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 export default function Page() {
@@ -100,7 +100,7 @@ export default function Page() {
 ```js
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { useEventEmitter } from 'react-native-composition';
+import { useEventEmitter } from 'react-native-hook';
 
 // 组件
 function Component() {
@@ -138,7 +138,7 @@ export default function App() {
 ```js
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { usePageEventEmitter } from 'react-native-composition';
+import { usePageEventEmitter } from 'react-native-hook';
 
 // 组件
 function Component() {
@@ -174,7 +174,7 @@ export default function Page() {
 ##### 使用
 
 ```js
-import { usePageInterval } from 'react-native-composition';
+import { usePageInterval } from 'react-native-hook';
 
 export default function Page() {
   const pageInterval = usePageInterval(() => {
@@ -194,7 +194,7 @@ export default function Page() {
 ##### 使用
 
 ```js
-import { useAppActiveInterval } from 'react-native-composition';
+import { useAppActiveInterval } from 'react-native-hook';
 
 export default function Page() {
   const appActiveInterval = useAppActiveInterval(() => {
@@ -214,7 +214,7 @@ export default function Page() {
 ##### 使用
 
 ```js
-import { usePageGestureEnabled } from 'react-native-composition';
+import { usePageGestureEnabled } from 'react-native-hook';
 
 export default function Page() {
   const pageGestureEnabled = usePageGestureEnabled(false);

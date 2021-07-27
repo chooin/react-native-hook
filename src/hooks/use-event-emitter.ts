@@ -35,7 +35,7 @@ export default (
       if (typeof DeviceEventEmitter.removeListener === 'function') {
         DeviceEventEmitter.removeListener(eventType, effect);
       } else {
-        emitterSubscription.current?.remove();
+        emitterSubscription.current?.remove?.();
       }
     }
   });
