@@ -196,7 +196,7 @@ export default function Page() {
 ```js
 import { useAppActiveInterval } from 'react-native-hook';
 
-export default function Page() {
+export default function App() {
   const appActiveInterval = useAppActiveInterval(() => {
     console.log('useAppActiveInterval');
   }, 60 * 1000);
