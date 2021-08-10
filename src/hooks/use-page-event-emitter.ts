@@ -5,7 +5,7 @@ import { useLoad, useUnload } from 'react-native-lifecycle';
 
 export interface PageEventEmitterParams {
   /**
-   * 订阅事件
+   * 触发订阅事件
    */
   emit: (...params: any[]) => void;
 }

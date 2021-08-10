@@ -115,10 +115,10 @@ function Component() {
 
 // 页面
 export default function App() {
-  const refresh = useEventEmitter('Event emitter name');
+  const eventEmitterName = useEventEmitter('Event emitter name');
 
   const onClick = () => {
-    refresh.emit('World'); // 发射事件
+    eventEmitterName.emit('World'); // 发射事件
   };
 
   return (
@@ -153,10 +153,10 @@ function Component() {
 
 // 页面
 export default function Page() {
-  const refresh = usePageEventEmitter('Event emitter name');
+  const eventEmitterName = usePageEventEmitter('Event emitter name');
 
   const onClick = () => {
-    refresh.emit('World'); // 发射事件
+    eventEmitterName.emit('World'); // 发射事件
   };
 
   return (
