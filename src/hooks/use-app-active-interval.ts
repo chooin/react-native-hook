@@ -1,4 +1,4 @@
-import { EffectCallback, useRef } from 'react';
+import { useRef } from 'react';
 import {
   useLoad,
   useUnload,
@@ -24,14 +24,14 @@ export interface AppActiveInterval {
 
 /**
  * App 定时器，App 活跃时激活，App 后台运行时停止
- * @param {function} effect 事件
+ * @param {function} fn 事件
  * @param {number} ms 毫秒
  * @param {object} options
  * @param {boolean} options.enabled 是否启用 default true
  * @public
  */
 export default (
-  effect: EffectCallback,
+  fn: () => void,
   ms: number,
   options: AppActiveIntervalOptions = {},
 ): AppActiveInterval => {
@@ -51,7 +51,7 @@ export default (
   useLoad(() => {
     i.current = setInterval(() => {
       if (appActive.current && isEnabled.current) {
-        effect();
+        fn();
       }
     }, ms);
   });

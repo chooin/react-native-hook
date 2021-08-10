@@ -1,4 +1,4 @@
-import { EffectCallback, useRef } from 'react';
+import { useRef } from 'react';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
 export interface PageIntervalOptions {
@@ -19,14 +19,14 @@ export interface PageInterval {
 
 /**
  * 页面定时器，页面释放时释放
- * @param {function} effect
+ * @param {function} fn
  * @param {number} ms 毫秒 default RESULTS.GRANTED
  * @param {object} options
  * @param {boolean} options.enabled 是否启用 default true
  * @public
  */
 export default (
-  effect: EffectCallback,
+  fn: () => void,
   ms: number,
   options: PageIntervalOptions = {},
 ): PageInterval => {
@@ -37,7 +37,7 @@ export default (
   useLoad(() => {
     i.current = setInterval(() => {
       if (isEnabled.current) {
-        effect();
+        fn();
       }
     }, ms);
   });
