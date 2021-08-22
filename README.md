@@ -24,7 +24,7 @@ yarn add react-native-permissions # 权限
 - [usePageEventEmitter](https://github.com/Chooin/react-native-hook#usepageeventemitter)
 - [usePageInterval](https://github.com/Chooin/react-native-hook#usepageinterval)
 - [useAppActiveInterval](https://github.com/Chooin/react-native-hook#useappactiveinterval)
-- [usePageGestureEnabled](https://github.com/Chooin/react-native-hook#usepagegestureenabled)
+- [usePageGesture](https://github.com/Chooin/react-native-hook#usepagegesture)
 
 ### usePermissions
 
@@ -207,17 +207,17 @@ export default function App() {
 }
 ```
 
-### usePageGestureEnabled
+### usePageGesture
 
 > 设置当前页面是否支持右滑返回（页面级事件，页面创建时创建，页面销毁时销毁）
 
 ##### 使用
 
 ```js
-import { usePageGestureEnabled } from 'react-native-hook';
+import { usePageGesture } from 'react-native-hook';
 
 export default function Page() {
-  const pageGestureEnabled = usePageGestureEnabled(false);
+  const pageGestureEnabled = usePageGesture(false);
 
   const onClick = () => {
     pageGestureEnabled.setEnabled(true);
