@@ -217,7 +217,9 @@ export default function App() {
 import { usePageGesture } from 'react-native-hook';
 
 export default function Page() {
-  const pageGesture = usePageGesture(false);
+  const pageGesture = usePageGesture({
+    enabled: false
+  });
 
   const onClick = () => {
     pageGesture.setEnabled(true);
