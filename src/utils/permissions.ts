@@ -21,7 +21,7 @@ const request = (
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): PermissionsRequest => {
   return new Promise((resolve, reject) => {
-    permissions.filter((item: string) => item && item.startsWith(Platform.OS));
+    permissions.filter((item: string) => item?.startsWith(Platform.OS));
     checkMultiple(permissions).then(checkMultipleStates => {
       permissions = permissions.filter(
         permission => checkMultipleStates[permission] !== permissionStatus,

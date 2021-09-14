@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Platform } from 'react-native';
+import { useShow, useHide } from 'react-native-lifecycle';
 import {
   checkMultiple,
   requestMultiple,
@@ -8,7 +9,6 @@ import {
   RESULTS,
   openSettings,
 } from 'react-native-permissions';
-import { useShow, useHide } from 'react-native-lifecycle';
 
 type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
 type State = boolean | null;

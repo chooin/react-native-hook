@@ -1,15 +1,13 @@
 {
   "name": "react-native-hook",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "React Native Hooks",
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",
-    "react-native-lifecycle": ">= 1.2.2",
+    "react-native-lifecycle": ">= 1.2.4",
     "react-native-permissions": ">= 2.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
     "@react-navigation/native": "^5.9.4",
     "@types/react": "^17.0.9",
     "@types/react-native": "^0.64.10",
@@ -17,7 +15,7 @@
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
-    "react-native-lifecycle": "^1.2.2",
+    "react-native-lifecycle": "^1.2.4",
     "typescript": "^4.0.5"
   },
   "main": "dist/index.js",
@@ -33,7 +31,6 @@
   ],
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
   }

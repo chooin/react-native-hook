@@ -17,7 +17,7 @@ yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
 
-### API
+### Hooks
 
 - [usePermissions](https://github.com/Chooin/react-native-hook#usepermissions)
 - [useEventEmitter](https://github.com/Chooin/react-native-hook#useeventemitter)
@@ -25,6 +25,10 @@ yarn add react-native-permissions # 权限
 - [usePageInterval](https://github.com/Chooin/react-native-hook#usepageinterval)
 - [useAppActiveInterval](https://github.com/Chooin/react-native-hook#useappactiveinterval)
 - [usePageGesture](https://github.com/Chooin/react-native-hook#usepagegesture)
+
+### Functions
+
+- [permissions](https://github.com/Chooin/react-native-hook#permissions)
 
 ### usePermissions
 
@@ -67,6 +71,8 @@ export default function Page() {
   };
 }
 ```
+
+### permissions
 
 > 直接向系统申请未开启的权限
 
@@ -218,7 +224,7 @@ import { usePageGesture } from 'react-native-hook';
 
 export default function Page() {
   const pageGesture = usePageGesture({
-    enabled: false
+    enabled: false,
   });
 
   const onClick = () => {
