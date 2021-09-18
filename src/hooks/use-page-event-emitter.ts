@@ -16,7 +16,10 @@ export interface PageEventEmitterParams {
  * @param {function} fn 订阅事件
  * @public
  */
-export default (eventType: string, fn?: () => void): PageEventEmitterParams => {
+export default (
+  eventType: string,
+  fn?: (args: any[]) => void,
+): PageEventEmitterParams => {
   const route = useRoute();
   const emitterSubscription = useRef<EmitterSubscription | null>(null);
   eventType = `${route.key}__${eventType}`;
@@ -32,11 +35,7 @@ export default (eventType: string, fn?: () => void): PageEventEmitterParams => {
 
   useUnload(() => {
     if (typeof fn === 'function') {
-      if (typeof DeviceEventEmitter.removeListener === 'function') {
-        DeviceEventEmitter.removeListener(eventType, fn);
-      } else {
-        emitterSubscription.current?.remove?.();
-      }
+      emitterSubscription.current?.remove?.();
     }
   });
 

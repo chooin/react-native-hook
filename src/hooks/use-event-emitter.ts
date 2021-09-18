@@ -15,7 +15,10 @@ export interface EventEmitterParams {
  * @param {function} fn 订阅事件
  * @public
  */
-export default (eventType: string, fn?: () => void): EventEmitterParams => {
+export default (
+  eventType: string,
+  fn?: (args: any[]) => void,
+): EventEmitterParams => {
   const emitterSubscription = useRef<EmitterSubscription | null>(null);
 
   useLoad(() => {
@@ -29,11 +32,7 @@ export default (eventType: string, fn?: () => void): EventEmitterParams => {
 
   useUnload(() => {
     if (typeof fn === 'function') {
-      if (typeof DeviceEventEmitter.removeListener === 'function') {
-        DeviceEventEmitter.removeListener(eventType, fn);
-      } else {
-        emitterSubscription.current?.remove?.();
-      }
+      emitterSubscription.current?.remove?.();
     }
   });
 
