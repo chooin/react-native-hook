@@ -5,7 +5,8 @@
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",
     "react-native-lifecycle": ">= 1.2.4",
-    "react-native-permissions": ">= 2.2.2"
+    "react-native-permissions": ">= 2.2.2",
+    "react-native-gesture-handler": ">= 1.4.0"
   },
   "devDependencies": {
     "@react-navigation/native": "^5.9.4",

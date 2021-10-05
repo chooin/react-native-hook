@@ -13,6 +13,7 @@ yarn add react-native-hook
 
 ```sh
 yarn add @react-navigation/native # >= 5.7.0
+yarn add react-native-gesture-handler # >= 1.4.0
 yarn add react-native-lifecycle # 生命周期
 yarn add react-native-permissions # 权限
 ```
