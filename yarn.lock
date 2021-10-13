@@ -72,10 +72,10 @@
   dependencies:
     react-native-permissions "*"
 
-"@types/react-native@^0.64.10":
-  version "0.64.10"
-  resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.64.10.tgz#5eb6a72c77ce0f7e6e14b19c61a6bc585975eef5"
-  integrity sha512-3Kb9QM5/WZ6p58yZ7VPbvjvi6Wc/ZkESgJhKso1gKkNuHBe/4WL6586R2JRDiz9Tsxal9lMnbj3fligBVGl8PA==
+"@types/react-native@^0.65.5":
+  version "0.65.5"
+  resolved "https://registry.npmmirror.com/@types/react-native/download/@types/react-native-0.65.5.tgz#e5e473be8c7ed784419554f25cc8850b9c3ce68d"
+  integrity sha1-5eRzvox+14RBlVTyXMiFC5w85o0=
   dependencies:
     "@types/react" "*"
 
@@ -87,10 +87,10 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
-"@types/react@^17.0.9":
-  version "17.0.9"
-  resolved "https://registry.npmjs.org/@types/react/-/react-17.0.9.tgz#1147fb520024a62c9b3841f5cb4db89b73ddb87f"
-  integrity sha512-2Cw7FvevpJxQrCb+k5t6GH1KIvmadj5uBbjPaLlJB/nZWUj56e1ZqcD6zsoMFB47MsJUTFl9RJ132A7hb3QFJA==
+"@types/react@^17.0.29":
+  version "17.0.29"
+  resolved "https://registry.npmmirror.com/@types/react/download/@types/react-17.0.29.tgz#9535f3fc01a4981ce9cadcf0daa2593c0c2f2251"
+  integrity sha1-lTXz/AGkmBzpytzw2qJZPAwvIlE=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
