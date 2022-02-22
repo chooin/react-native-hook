@@ -1,10 +1,20 @@
-export { default as useAppActiveInterval } from './hooks/use-app-active-interval';
-export { default as useEventEmitter } from './hooks/use-event-emitter';
-export { default as usePermissions } from './hooks/use-permissions';
+import { useAppActiveInterval } from './hooks/useAppActiveInterval';
+import { useEventEmitter } from './hooks/useEventEmitter';
+import { usePermissions } from './hooks/usePermissions';
 
 // Page
-export { default as usePageEventEmitter } from './hooks/use-page-event-emitter';
-export { default as usePageInterval } from './hooks/use-page-interval';
-export { default as usePageGesture } from './hooks/use-page-gesture';
+import { usePageEventEmitter } from './hooks/usePageEventEmitter';
+import { usePageInterval } from './hooks/usePageInterval';
+import { usePageGesture } from './hooks/usePageGesture';
 
-export { default as permissions } from './utils/permissions';
+import * as permissions from './utils/permissions';
+
+export {
+  useAppActiveInterval,
+  useEventEmitter,
+  usePermissions,
+  usePageEventEmitter,
+  usePageInterval,
+  usePageGesture,
+  permissions,
+};

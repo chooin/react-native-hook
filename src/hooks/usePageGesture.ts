@@ -3,14 +3,14 @@ import { useLoad, useUnload } from 'react-native-lifecycle';
 import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 
-export interface PageGestureOptions {
+interface PageGestureOptions {
   /**
    * 页面手势返回，是否启用
    */
   enabled?: boolean;
 }
 
-export interface PageGestureParams {
+interface PageGestureResult {
   /**
    * 是否启用
    */
@@ -22,7 +22,9 @@ export interface PageGestureParams {
  * @param {boolean} enabled 是否启用
  * @public
  */
-export default ({ enabled }: PageGestureOptions): PageGestureParams => {
+export function usePageGesture({
+  enabled,
+}: PageGestureOptions): PageGestureResult {
   const enabledRef = useRef(enabled);
   const navigation = useNavigation();
 
@@ -51,4 +53,4 @@ export default ({ enabled }: PageGestureOptions): PageGestureParams => {
   return {
     setEnabled,
   };
-};
+}

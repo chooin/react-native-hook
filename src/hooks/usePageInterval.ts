@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-export interface PageIntervalOptions {
+interface PageIntervalOptions {
   /**
    * setInterval 是否启用
    * @default true
@@ -9,7 +9,7 @@ export interface PageIntervalOptions {
   enabled?: boolean;
 }
 
-export interface PageInterval {
+interface PageIntervalResult {
   /**
    * 设置 setInterval 是否启用
    * @param enabled
@@ -25,17 +25,17 @@ export interface PageInterval {
  * @param {boolean} options.enabled 是否启用 default true
  * @public
  */
-export default (
+export function usePageInterval(
   fn: () => void,
   ms: number,
   options: PageIntervalOptions = {},
-): PageInterval => {
+): PageIntervalResult {
   const { enabled = true } = options;
-  const i = useRef<number | null>(null);
+  const timer = useRef<number>();
   const isEnabled = useRef<boolean>(enabled);
 
   useLoad(() => {
-    i.current = setInterval(() => {
+    timer.current = setInterval(() => {
       if (isEnabled.current) {
         fn();
       }
@@ -43,8 +43,8 @@ export default (
   });
 
   useUnload(() => {
-    if (i.current) {
-      clearInterval(i.current);
+    if (timer.current) {
+      clearInterval(timer.current);
     }
   });
 
@@ -55,4 +55,4 @@ export default (
   return {
     setEnabled,
   };
-};
+}

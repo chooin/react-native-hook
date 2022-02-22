@@ -6,7 +6,7 @@ import {
   useAppInactive,
 } from 'react-native-lifecycle';
 
-export interface AppActiveIntervalOptions {
+interface AppActiveIntervalOptions {
   /**
    * setInterval 是否启用
    * @default true
@@ -14,7 +14,7 @@ export interface AppActiveIntervalOptions {
   enabled?: boolean;
 }
 
-export interface AppActiveInterval {
+interface AppActiveIntervalResult {
   /**
    * 设置 setInterval 是否启用
    * @param {boolean} enabled
@@ -30,13 +30,13 @@ export interface AppActiveInterval {
  * @param {boolean} options.enabled 是否启用 default true
  * @public
  */
-export default (
+export function useAppActiveInterval(
   fn: () => void,
   ms: number,
   options: AppActiveIntervalOptions = {},
-): AppActiveInterval => {
+): AppActiveIntervalResult {
   const { enabled = true } = options;
-  const i = useRef<number | null>(null);
+  const timer = useRef<number>();
   const appActive = useRef<boolean>(true);
   const isEnabled = useRef<boolean>(enabled);
 
@@ -49,7 +49,7 @@ export default (
   });
 
   useLoad(() => {
-    i.current = setInterval(() => {
+    timer.current = setInterval(() => {
       if (appActive.current && isEnabled.current) {
         fn();
       }
@@ -57,8 +57,8 @@ export default (
   });
 
   useUnload(() => {
-    if (i.current) {
-      clearInterval(i.current);
+    if (timer.current) {
+      clearInterval(timer.current);
     }
   });
 
@@ -69,4 +69,4 @@ export default (
   return {
     setEnabled,
   };
-};
+}

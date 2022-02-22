@@ -1,9 +1,8 @@
 import { useRef } from 'react';
 import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
-import { useRoute } from '@react-navigation/native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-export interface PageEventEmitterParams {
+interface EventEmitterResult {
   /**
    * 触发订阅事件
    */
@@ -11,18 +10,16 @@ export interface PageEventEmitterParams {
 }
 
 /**
- * 页面级事件订阅
+ * 事件订阅
  * @param {string} eventType 事件名称
  * @param {function} fn 订阅事件
  * @public
  */
-export default (
+export function useEventEmitter(
   eventType: string,
   fn?: (args: any[]) => void,
-): PageEventEmitterParams => {
-  const route = useRoute();
+): EventEmitterResult {
   const emitterSubscription = useRef<EmitterSubscription | null>(null);
-  eventType = `${route.key}__${eventType}`;
 
   useLoad(() => {
     if (typeof fn === 'function') {
@@ -42,4 +39,4 @@ export default (
   return {
     emit: (...params: any[]) => DeviceEventEmitter.emit(eventType, ...params),
   };
-};
+}

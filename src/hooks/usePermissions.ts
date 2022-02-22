@@ -12,7 +12,7 @@ import {
 
 type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
 type State = boolean | null;
-type PermissionsParams = {
+type PermissionsResult = {
   state: State;
   request: () => RequestResponse;
 };
@@ -23,10 +23,10 @@ type PermissionsParams = {
  * @param {RESULTS} permissionStatus default RESULTS.GRANTED
  * @public
  */
-export default (
+export function usePermissions(
   permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
-): PermissionsParams => {
+): PermissionsResult {
   const [state, setState] = useState<State>(null);
   permissions = permissions.filter(
     item => item && item.startsWith(Platform.OS),
@@ -68,4 +68,4 @@ export default (
     state,
     request,
   };
-};
+}
