@@ -9,12 +9,12 @@ import {
   RESULTS,
   openSettings,
 } from 'react-native-permissions';
+import type { PermissionsRequestResult } from '../utils/permissions';
 
-type RequestResponse = Promise<void | { openSettings: Promise<void> }>;
-type State = boolean | null;
+type PermissionsState = boolean | null;
 type PermissionsResult = {
-  state: State;
-  request: () => RequestResponse;
+  state: PermissionsState;
+  request: () => PermissionsRequestResult;
 };
 
 /**
@@ -27,7 +27,7 @@ export function usePermissions(
   permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): PermissionsResult {
-  const [state, setState] = useState<State>(null);
+  const [state, setState] = useState<PermissionsState>(null);
   permissions = permissions.filter(
     item => item && item.startsWith(Platform.OS),
   );
@@ -46,7 +46,7 @@ export function usePermissions(
     setState(null);
   });
 
-  const request = (): RequestResponse => {
+  const request = (): PermissionsRequestResult => {
     return new Promise((resolve, reject) => {
       requestMultiple(permissions).then(statuses => {
         if (

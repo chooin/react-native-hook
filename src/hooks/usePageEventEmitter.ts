@@ -3,12 +3,12 @@ import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-interface PageEventEmitterResult {
+type PageEventEmitterResult = {
   /**
    * 触发订阅事件
    */
   emit: (...params: any[]) => void;
-}
+};
 
 /**
  * 页面级事件订阅

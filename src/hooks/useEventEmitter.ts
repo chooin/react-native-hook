@@ -2,12 +2,12 @@ import { useRef } from 'react';
 import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-interface EventEmitterResult {
+type EventEmitterResult = {
   /**
    * 触发订阅事件
    */
   emit: (...params: any[]) => void;
-}
+};
 
 /**
  * 事件订阅

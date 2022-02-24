@@ -1,21 +1,21 @@
 import { useRef } from 'react';
 import { useLoad, useUnload } from 'react-native-lifecycle';
 
-interface PageIntervalOptions {
+type PageIntervalOptions = {
   /**
    * setInterval 是否启用
    * @default true
    */
   enabled?: boolean;
-}
+};
 
-interface PageIntervalResult {
+type PageIntervalResult = {
   /**
    * 设置 setInterval 是否启用
    * @param enabled
    */
   setEnabled: (enabled: boolean) => void;
-}
+};
 
 /**
  * 页面定时器，页面释放时释放

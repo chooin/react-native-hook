@@ -8,7 +8,9 @@ import {
   openSettings,
 } from 'react-native-permissions';
 
-type PermissionsResult = Promise<void | { openSettings: Promise<void> }>;
+export type PermissionsRequestResult = Promise<void | {
+  openSettings: Promise<void>;
+}>;
 
 /**
  * 权限
@@ -16,10 +18,10 @@ type PermissionsResult = Promise<void | { openSettings: Promise<void> }>;
  * @param {RESULTS} permissionStatus default RESULTS.GRANTED
  * @public
  */
-function request(
+export function request(
   permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
-): PermissionsResult {
+): PermissionsRequestResult {
   return new Promise((resolve, reject) => {
     permissions.filter((item: string) => item?.startsWith(Platform.OS));
     checkMultiple(permissions).then(checkMultipleStates => {
@@ -46,7 +48,3 @@ function request(
     });
   });
 }
-
-export default {
-  request,
-};

@@ -6,21 +6,21 @@ import {
   useAppInactive,
 } from 'react-native-lifecycle';
 
-interface AppActiveIntervalOptions {
+type AppActiveIntervalOptions = {
   /**
    * setInterval 是否启用
    * @default true
    */
   enabled?: boolean;
-}
+};
 
-interface AppActiveIntervalResult {
+type AppActiveIntervalResult = {
   /**
    * 设置 setInterval 是否启用
    * @param {boolean} enabled
    */
   setEnabled: (enabled: boolean) => void;
-}
+};
 
 /**
  * App 定时器，App 活跃时激活，App 后台运行时停止
