@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useLoad, useUnload } from 'react-native-lifecycle';
+import { useMount, useUnmount } from 'react-native-lifecycle';
 import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 
@@ -39,14 +39,14 @@ export function usePageGesture({
     });
   };
 
-  useLoad(() => {
+  useMount(() => {
     navigation.setOptions({
       gestureEnabled: enabled,
     });
     BackHandler.addEventListener('hardwareBackPress', onHardwareBackPress);
   });
 
-  useUnload(() => {
+  useUnmount(() => {
     BackHandler.removeEventListener('hardwareBackPress', onHardwareBackPress);
   });
 

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useLoad, useUnload } from 'react-native-lifecycle';
+import { useMount, useUnmount } from 'react-native-lifecycle';
 
 type PageIntervalOptions = {
   /**
@@ -31,10 +31,10 @@ export function usePageInterval(
   options: PageIntervalOptions = {},
 ): PageIntervalResult {
   const { enabled = true } = options;
-  const timer = useRef<number>();
+  const timer = useRef<NodeJS.Timer>();
   const isEnabled = useRef<boolean>(enabled);
 
-  useLoad(() => {
+  useMount(() => {
     timer.current = setInterval(() => {
       if (isEnabled.current) {
         fn();
@@ -42,7 +42,7 @@ export function usePageInterval(
     }, ms);
   });
 
-  useUnload(() => {
+  useUnmount(() => {
     if (timer.current) {
       clearInterval(timer.current);
     }

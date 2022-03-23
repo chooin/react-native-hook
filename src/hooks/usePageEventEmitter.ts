@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { useLoad, useUnload } from 'react-native-lifecycle';
+import { useMount, useUnmount } from 'react-native-lifecycle';
 
 type PageEventEmitterResult = {
   /**
@@ -24,7 +24,7 @@ export function usePageEventEmitter(
   const emitterSubscription = useRef<EmitterSubscription | null>(null);
   eventType = `${route.key}__${eventType}`;
 
-  useLoad(() => {
+  useMount(() => {
     if (typeof fn === 'function') {
       emitterSubscription.current = DeviceEventEmitter.addListener(
         eventType,
@@ -33,7 +33,7 @@ export function usePageEventEmitter(
     }
   });
 
-  useUnload(() => {
+  useUnmount(() => {
     if (typeof fn === 'function') {
       emitterSubscription.current?.remove?.();
     }

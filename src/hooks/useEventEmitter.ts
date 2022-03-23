@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { DeviceEventEmitter, EmitterSubscription } from 'react-native';
-import { useLoad, useUnload } from 'react-native-lifecycle';
+import { useMount, useUnmount } from 'react-native-lifecycle';
 
 type EventEmitterResult = {
   /**
@@ -21,7 +21,7 @@ export function useEventEmitter(
 ): EventEmitterResult {
   const emitterSubscription = useRef<EmitterSubscription | null>(null);
 
-  useLoad(() => {
+  useMount(() => {
     if (typeof fn === 'function') {
       emitterSubscription.current = DeviceEventEmitter.addListener(
         eventType,
@@ -30,7 +30,7 @@ export function useEventEmitter(
     }
   });
 
-  useUnload(() => {
+  useUnmount(() => {
     if (typeof fn === 'function') {
       emitterSubscription.current?.remove?.();
     }

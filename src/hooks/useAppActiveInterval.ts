@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import {
-  useLoad,
-  useUnload,
+  useMount,
+  useUnmount,
   useAppActive,
   useAppInactive,
 } from 'react-native-lifecycle';
@@ -36,7 +36,7 @@ export function useAppActiveInterval(
   options: AppActiveIntervalOptions = {},
 ): AppActiveIntervalResult {
   const { enabled = true } = options;
-  const timer = useRef<number>();
+  const timer = useRef<NodeJS.Timer>();
   const appActive = useRef<boolean>(true);
   const isEnabled = useRef<boolean>(enabled);
 
@@ -48,7 +48,7 @@ export function useAppActiveInterval(
     appActive.current = false;
   });
 
-  useLoad(() => {
+  useMount(() => {
     timer.current = setInterval(() => {
       if (appActive.current && isEnabled.current) {
         fn();
@@ -56,7 +56,7 @@ export function useAppActiveInterval(
     }, ms);
   });
 
-  useUnload(() => {
+  useUnmount(() => {
     if (timer.current) {
       clearInterval(timer.current);
     }

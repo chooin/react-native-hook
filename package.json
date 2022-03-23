@@ -1,11 +1,11 @@
 {
   "name": "react-native-hook",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "React Native Hooks",
   "peerDependencies": {
     "@react-navigation/native": ">= 5.7.0",
     "react-native-gesture-handler": ">= 1.4.0",
-    "react-native-lifecycle": ">= 1.2.4",
+    "react-native-lifecycle": ">= 2.1.0",
     "react-native-permissions": ">= 2.2.2"
   },
   "devDependencies": {
@@ -16,15 +16,16 @@
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
-    "react-native-lifecycle": "^1.2.4",
-    "typescript": "^4.0.5"
+    "react-native-lifecycle": "^2.1.0",
+    "typescript": "^4.0.5",
+    "zx": "^6.0.7"
   },
   "main": "dist/index.js",
   "repository": "git@github.com:Chooin/react-native-hook.git",
   "author": "Devin.Zhu <chooin@126.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "scripts/build.mjs"
   },
   "files": [
     "dist",
