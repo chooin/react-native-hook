@@ -7,7 +7,7 @@ import { usePageEventEmitter } from './hooks/usePageEventEmitter';
 import { usePageInterval } from './hooks/usePageInterval';
 import { usePageGesture } from './hooks/usePageGesture';
 
-import * as permissions from './utils/permissions';
+import { default as permissions } from './utils/permissions';
 
 export {
   useAppActiveInterval,

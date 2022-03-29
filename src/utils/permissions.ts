@@ -18,7 +18,7 @@ export type PermissionsRequestResult = Promise<void | {
  * @param {RESULTS} permissionStatus default RESULTS.GRANTED
  * @public
  */
-export function request(
+function request(
   permissions: Permission[],
   permissionStatus: PermissionStatus = RESULTS.GRANTED,
 ): PermissionsRequestResult {
@@ -48,3 +48,7 @@ export function request(
     });
   });
 }
+
+export default {
+  request,
+};
